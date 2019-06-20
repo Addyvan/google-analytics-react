@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: analytics-proto
+  namespace: analytics
+  annotations:
+    kubernetes.io/tls-acme:  "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - analytics.gccollab.ca
+    secretName: analytics-proto-secret
+  rules:
+  - host: analytics.gccollab.ca
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: analytics-proto
+          servicePort: 5000

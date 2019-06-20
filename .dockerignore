@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+.env
+data-team-docs
+data-team-cli
+kubernetes

@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+./src/oidcConfig.dev.js
+oidcConfig.dev.js

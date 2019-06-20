@@ -1,0 +1,6 @@
+version: '3'
+services:
+  frontend:
+    image: index.docker.io/addyvan/analytics-proto:latest
+    ports:
+    - "5000:5000"

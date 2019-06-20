@@ -1,13 +1,9 @@
 import React from "react";
-import { Container } from "reactstrap";
-
-import Header from "./Header";
 
 const DefaultLayout = ({ children }) => (
-  <Container id="main" >
-    <Header />
+  <div id="main" >
     {children}
-  </Container>
+  </div>
 );
 
 export default DefaultLayout;

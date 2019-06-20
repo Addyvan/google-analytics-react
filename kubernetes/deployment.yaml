@@ -1,0 +1,21 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: analytics-proto
+  namespace: analytics
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: analytics-proto
+    spec:
+      containers:
+        - name: analytics-proto
+          image: index.docker.io/addyvan/analytics-proto:latest
+          ports:
+            - containerPort: 5000
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "0.1"

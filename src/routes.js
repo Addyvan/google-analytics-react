@@ -1,6 +1,3 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
-
 // Layout Types
 import DefaultLayout from "./layouts/Default";
 
@@ -14,7 +11,7 @@ export default [
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/PageA" />
+    component: PageA
   },
   {
     path: "/PageA",
