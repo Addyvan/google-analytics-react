@@ -52,10 +52,10 @@ class Header extends React.Component {
                   <NavLink href="/PageA">Page A</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/PageB">Page B</NavLink>
+                  <NavLink href="/onboard">onboard</NavLink>
                 </NavItem>
                 <NavItem style={{marginRight: "10px"}}>
-                  <NavLink href="/PageC">Page C</NavLink>
+                  <NavLink href="/PageC">story</NavLink>
                 </NavItem>
                 <NavItem>
                   <Login

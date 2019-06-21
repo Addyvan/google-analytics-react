@@ -4,7 +4,8 @@ import {connect} from"react-redux";
 
 import {
   Row,
-  Col
+  Col,
+  Button
 } from "reactstrap";
 
 class PageA extends React.Component {
@@ -19,11 +20,18 @@ class PageA extends React.Component {
 
   render() {
     return(
-      <Row>
-        <Col md="12">
-          Pageviews: {this.state.pageview_total}
-        </Col>
-      </Row>
+      <>
+        <Row>
+          <Col md="12">
+            Pageviews: {this.state.pageview_total}
+          </Col>
+        </Row>
+        <Row>
+          <Col md="12">
+            <Button onClick={() => {console.log("clicked!!!!!");}}>Click me</Button>
+          </Col>
+        </Row>
+      </>
     );
   }
 }

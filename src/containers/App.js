@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from "../redux/store";
 import routes from "../routes";
+import "../styles/aurora.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "../layouts/Header";
 

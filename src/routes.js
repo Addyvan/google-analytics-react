@@ -3,7 +3,7 @@ import DefaultLayout from "./layouts/Default";
 
 // Route Views
 import PageA from "./containers/PageA";
-import PageB from "./containers/PageB";
+import Onboard from "./containers/Onboard";
 import PageC from "./containers/PageC";
 
 export default [
@@ -19,9 +19,9 @@ export default [
     component: PageA
   },
   {
-    path: "/PageB",
+    path: "/onboard",
     layout: DefaultLayout,
-    component: PageB
+    component: Onboard
   },
   {
     path: "/PageC",

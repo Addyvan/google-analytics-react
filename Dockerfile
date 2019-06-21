@@ -1,8 +1,6 @@
 FROM mhart/alpine-node 
 WORKDIR /
 COPY . .
-RUN yarn
-RUN ls
-RUN yarn add global serve
+RUN yarn add serve
 EXPOSE 5000
 CMD [ "yarn", "serve", "-s", "build"]
