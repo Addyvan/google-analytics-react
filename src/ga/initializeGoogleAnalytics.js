@@ -6,4 +6,4 @@ function gtag(){
   window.dataLayer.push(arguments);
 }
 
-gtag('config', id, {});
+gtag('config', id, {'send_page_view': false});

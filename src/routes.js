@@ -4,7 +4,7 @@ import DefaultLayout from "./layouts/Default";
 // Route Views
 import PageA from "./containers/PageA";
 import Onboard from "./containers/Onboard";
-import PageC from "./containers/PageC";
+import PageC from "./containers/Story";
 
 export default [
   {

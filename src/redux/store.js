@@ -6,18 +6,19 @@ import * as ga from "../ga/initializeGoogleAnalytics";
 import saveState from "./saveState";
 import loadState from "./loadState";
 
-// Single sign-on action types
-const LOGIN_ACTION = 'LOGIN';
-const LOGOUT_ACTION = 'LOGOUT';
-const ERROR = 'ERROR';
-const CLEAR_ERROR = 'CLEAR_ERROR';
+import {
+  LOGIN_ACTION,
+  LOGOUT_ACTION,
+  ERROR,
+  CLEAR_ERROR,
+  EDIT_NAME,
+  EDIT_COUNTRY,
+  EDIT_PHONE,
+  EDIT_TEAM,
+  ADD_STORY,
+  RESET_STATE
+} from "./actions/types";
 
-// onboarding action types
-const EDIT_NAME = "EDIT_NAME";
-const EDIT_COUNTRY = "EDIT_COUNTRY";
-const EDIT_PHONE = "EDIT_PHONE";
-const EDIT_TEAM = "EDIT_TEAM";
-const ADD_STORY = "ADD_STORY";
 
 const initialState = {
   showError: false,
@@ -45,6 +46,7 @@ function handleLogin(state, action) {
 }
 
 function analytics_reducer(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case LOGIN_ACTION:
       return handleLogin(state, action);
@@ -66,9 +68,7 @@ function analytics_reducer(state = initialState, action) {
 }
 
 function addOnboardingStory(state, action) {
-
-  console.log("state", state);
-
+  
   state.story.push({
     time: new Date(),
     action: {
@@ -96,8 +96,15 @@ let onboardInitialState = {
   story: (oldState.onboarding.story) ? oldState.onboarding.story : []
 }
 
+let emptyOnboardState = {
+  name: null,
+  country: null,
+  phone: null,
+  team: null,
+  story: []
+};
+
 function onboarding_reducer(state = onboardInitialState, action) {
-  
   switch (action.type) {
     case EDIT_NAME:
       return Object.assign({}, state, { name: action.name });
@@ -109,6 +116,8 @@ function onboarding_reducer(state = onboardInitialState, action) {
       return Object.assign({}, state, { team: action.team });
     case ADD_STORY:
       return addOnboardingStory(state, action);
+    case RESET_STATE:
+      return Object.assign({}, emptyOnboardState);
     default:
       return state;
   }
@@ -128,7 +137,6 @@ export const history = createBrowserHistory();
 
 const store = createStore(
   createRootReducer(history),
-  //oldState,
   compose(
     applyMiddleware(
       routerMiddleware(history)
@@ -139,18 +147,5 @@ const store = createStore(
 store.subscribe(() => {
   saveState(store.getState());
 });
-
-// Single sign on actions
-export const loginAction = user => ({ type: LOGIN_ACTION, user });
-export const logoutAction = () => ({ type: LOGOUT_ACTION });
-export const errorAction = error => ({ type: ERROR, error });
-export const clearErrorAction = () => ({ type: CLEAR_ERROR });
-
-// Onboarding actions
-export const editName = name => ({type: EDIT_NAME, name});
-export const editCountry = country => ({type: EDIT_COUNTRY, country});
-export const editPhone = phone => ({type: EDIT_PHONE, phone});
-export const editTeam = team => ({type: EDIT_TEAM, team});
-export const addStory = (story_type, step) => ({type: ADD_STORY, story_type, step});
 
 export default store;

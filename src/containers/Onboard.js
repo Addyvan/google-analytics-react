@@ -10,7 +10,7 @@ import {
   Col
 } from "reactstrap";
 
-import { addStory } from '../redux/store';
+import { addStory } from '../redux/actions/actions';
 import { connect } from 'react-redux';
 
 class Onboard extends React.Component {

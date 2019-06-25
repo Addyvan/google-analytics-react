@@ -14,7 +14,7 @@ import {
 
 import oidcConfig from "../oidcConfig.dev";
 
-import { loginAction, logoutAction, clearErrorAction } from '../redux/store';
+import { loginAction, logoutAction, clearErrorAction } from '../redux/actions/actions';
 import { connect } from 'react-redux';
 import Login from '@gctools-components/gc-login';
 
@@ -44,7 +44,7 @@ class Header extends React.Component {
       <Row style={{marginTop: "15px", marginBottom: "15px"}}>
         <Col>
           <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Google Analytics demo</NavbarBrand>
+            <NavbarBrand href="/">Analytics demo</NavbarBrand>
             <NavbarToggler/>
             
               <Nav className="ml-auto" navbar>

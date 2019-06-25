@@ -10,7 +10,7 @@ import {
   Label
 } from "reactstrap";
 
-import { editName, editPhone, editCountry } from '../../redux/store';
+import { editName, editPhone, editCountry } from '../../redux/actions/actions';
 import { connect } from 'react-redux';
 
 class OnboardStep1 extends React.Component {
