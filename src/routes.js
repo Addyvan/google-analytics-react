@@ -5,6 +5,7 @@ import DefaultLayout from "./layouts/Default";
 import PageA from "./containers/PageA";
 import Onboard from "./containers/Onboard";
 import PageC from "./containers/Story";
+import Fruit from "./containers/Fruit";
 
 export default [
   {
@@ -27,5 +28,10 @@ export default [
     path: "/PageC",
     layout: DefaultLayout,
     component: PageC
+  },
+  {
+    path: "/fruits/:id",
+    layout: DefaultLayout,
+    component: Fruit
   },
 ];

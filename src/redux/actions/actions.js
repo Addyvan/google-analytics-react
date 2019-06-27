@@ -24,3 +24,4 @@ export const editPhone = phone => ({type: EDIT_PHONE, phone});
 export const editTeam = team => ({type: EDIT_TEAM, team});
 export const addStory = (story_type, step) => ({type: ADD_STORY, story_type, step});
 export const resetState = () => ({type: RESET_STATE});
+export const trackSearch = (query, result) => ({type: RESET_STATE, query, result});

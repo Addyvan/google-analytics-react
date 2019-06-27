@@ -11,3 +11,6 @@ export const EDIT_PHONE = "EDIT_PHONE";
 export const EDIT_TEAM = "EDIT_TEAM";
 export const ADD_STORY = "ADD_STORY";
 export const RESET_STATE = "RESET_STATE";
+
+// analytics action types
+export const TRACK_SEARCH = "TRACK_SEARCH";

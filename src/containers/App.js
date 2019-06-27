@@ -9,8 +9,8 @@ import Header from "../layouts/Header";
 
 import {Container} from "reactstrap";
 
-
 class App extends React.Component {
+
   render() {
     return (
       <Router>

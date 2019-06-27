@@ -2,9 +2,9 @@ import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
-import * as ga from "../ga/initializeGoogleAnalytics";
-import saveState from "./saveState";
-import loadState from "./loadState";
+//import gtag from "../ga/initializeGoogleAnalytics";
+import saveState from "./utils/saveState";
+import loadState from "./utils/loadState";
 
 import {
   LOGIN_ACTION,
@@ -45,8 +45,15 @@ function handleLogin(state, action) {
   }
 }
 
+/*
+function trackSearch(state, query, result) {
+  gtag('event', 'search', {query: query, result: result});
+  return Object.assign({}, state);
+}
+*/
+
 function analytics_reducer(state = initialState, action) {
-  console.log(action);
+  //console.log(action);
   switch (action.type) {
     case LOGIN_ACTION:
       return handleLogin(state, action);
@@ -89,11 +96,11 @@ function addOnboardingStory(state, action) {
 const oldState = loadState();
 
 let onboardInitialState = {
-  name: (oldState.onboarding.name) ? oldState.onboarding.name : null,
-  country: (oldState.onboarding.country) ? oldState.onboarding.country : null,
-  phone: (oldState.onboarding.phone) ? oldState.onboarding.phone : null,
-  team: (oldState.onboarding.team) ? oldState.onboarding.team : null,
-  story: (oldState.onboarding.story) ? oldState.onboarding.story : []
+  name: (oldState) ? oldState.onboarding.name : null,
+  country: (oldState) ? oldState.onboarding.country : null,
+  phone: (oldState) ? oldState.onboarding.phone : null,
+  team: (oldState) ? oldState.onboarding.team : null,
+  story: (oldState) ? oldState.onboarding.story : []
 }
 
 let emptyOnboardState = {

@@ -17,12 +17,15 @@ import oidcConfig from "../oidcConfig.dev";
 import { loginAction, logoutAction, clearErrorAction } from '../redux/actions/actions';
 import { connect } from 'react-redux';
 import Login from '@gctools-components/gc-login';
+import Search from "../components/search/Search";
+
 
 class Header extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { name: false };
+
   }
 
   render() {
@@ -40,6 +43,15 @@ class Header extends React.Component {
       this.setState({ name: false });
       onLogout();
     };
+
+    var data = [
+      {en: "Apple", fr: "Pomme", out: "A"},
+      {en: "Orange", fr: "Orange", out: "B"},
+      {en: "Potato", fr: "Pomme-de-terre", out: "C"},
+      {en: "Cake", fr: "Gâteau", out: "D"},
+      {en: "Watermelon", fr: "Melon d'eau", out: "E"},
+    ];
+
     return(
       <Row style={{marginTop: "15px", marginBottom: "15px"}}>
         <Col>
@@ -49,7 +61,7 @@ class Header extends React.Component {
             
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/PageA">Page A</NavLink>
+                  <NavLink href="/PageA">Overview</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/onboard">onboard</NavLink>
@@ -57,6 +69,14 @@ class Header extends React.Component {
                 <NavItem style={{marginRight: "10px"}}>
                   <NavLink href="/PageC">story</NavLink>
                 </NavItem>
+                <Search
+                    placeholder="Search..."
+                    lang="en"
+                    data={data}
+                    englishKey="en"
+                    frenchKey="fr"
+                    outputKey="out"
+                  />
                 <NavItem>
                   <Login
                     oidcConfig={oidcConfig}

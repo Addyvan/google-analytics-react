@@ -6,4 +6,7 @@ function gtag(){
   window.dataLayer.push(arguments);
 }
 
-gtag('config', id, {'send_page_view': false});
+gtag('js', new Date());
+gtag('config', id);
+
+export default gtag;
